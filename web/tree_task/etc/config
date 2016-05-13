@@ -1,0 +1,7 @@
+[http]
+port = 5000
+host = 0.0.0.0
+[mongodb]
+host = db
+port = 27017
+dbname = tree_task

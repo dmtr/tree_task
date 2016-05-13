@@ -1,0 +1,26 @@
+version: '2'
+services:
+    web:
+      build: ./web/
+      expose:
+        - "5000"
+      environment:
+        - PYTHONPATH=/app/
+        - SECRET_KEY=my_super_secret_key
+      command: python /app/tree_task/app.py --config=/app/tree_task/etc/config 
+      volumes:
+        - ./web/tree_task/:/app/tree_task
+      depends_on:
+        - db
+
+    nginx:
+      build: ./nginx/
+      ports:
+        - "80:80"
+      volumes_from:
+        - web
+      links:
+        - web:web
+
+    db:
+        build: ./mongo/
