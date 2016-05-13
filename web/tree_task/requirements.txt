@@ -1,7 +1,0 @@
-aiohttp
-motor
-itsdangerous
-cchardet==1.0.0
-chardet==2.3.0
-ipdb==0.8.1
-ipython==4.0.3
